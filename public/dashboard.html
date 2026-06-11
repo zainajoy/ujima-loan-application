@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ujima SACCO — Dashboard</title>
+  <link rel="stylesheet" href="dashboard.css" />
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-left">
+      <div class="brand-mark">U</div>
+      <div>
+        <div class="brand-name">Ujima SACCO</div>
+        <div class="brand-sub">Operations Dashboard</div>
+      </div>
+    </div>
+    <div class="nav-links">
+      <a href="index.html">New Application</a>
+      <a href="dashboard.html" class="active">Dashboard</a>
+    </div>
+  </nav>
+
+  <main class="dash-main">
+
+    <div class="dash-header">
+      <div>
+        <h1>Loan Intelligence Overview</h1>
+        <p class="dash-sub">Built by Zaina &nbsp;|&nbsp; Ujima SACCO AI Pride System</p>
+      </div>
+      <div class="dash-date" id="dashDate"></div>
+    </div>
+
+    <!-- STAT CARDS -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-label">Total Applications</div>
+        <div class="stat-value" id="totalApps">0</div>
+        <div class="stat-bar"><div class="stat-bar-fill full" id="totalBar"></div></div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Approved</div>
+        <div class="stat-value green" id="totalApproved">0</div>
+        <div class="stat-bar"><div class="stat-bar-fill green-fill" id="approvedBar"></div></div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Escalated</div>
+        <div class="stat-value red" id="totalEscalated">0</div>
+        <div class="stat-bar"><div class="stat-bar-fill red-fill" id="escalatedBar"></div></div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Under Review</div>
+        <div class="stat-value blue" id="totalReview">0</div>
+        <div class="stat-bar"><div class="stat-bar-fill blue-fill" id="reviewBar"></div></div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Avg Literacy Score</div>
+        <div class="stat-value gold" id="avgLiteracy">0</div>
+        <div class="stat-bar"><div class="stat-bar-fill gold-fill" id="literacyBar"></div></div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Avg Risk Score</div>
+        <div class="stat-value orange" id="avgRisk">0</div>
+        <div class="stat-bar"><div class="stat-bar-fill orange-fill" id="riskBar"></div></div>
+      </div>
+    </div>
+
+    <!-- MIDDLE ROW -->
+    <div class="mid-row">
+
+      <div class="breakdown-card">
+        <div class="card-title">Decision Breakdown</div>
+        <div class="breakdown-bars" id="breakdownBars">
+          <div class="breakdown-item">
+            <div class="breakdown-label">Approved</div>
+            <div class="breakdown-track">
+              <div class="breakdown-fill green-fill" id="bApprove" style="width:0%"></div>
+            </div>
+            <div class="breakdown-pct" id="pApprove">0%</div>
+          </div>
+          <div class="breakdown-item">
+            <div class="breakdown-label">Under Review</div>
+            <div class="breakdown-track">
+              <div class="breakdown-fill blue-fill" id="bReview" style="width:0%"></div>
+            </div>
+            <div class="breakdown-pct" id="pReview">0%</div>
+          </div>
+          <div class="breakdown-item">
+            <div class="breakdown-label">Escalated</div>
+            <div class="breakdown-track">
+              <div class="breakdown-fill red-fill" id="bEscalate" style="width:0%"></div>
+            </div>
+            <div class="breakdown-pct" id="pEscalate">0%</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="summary-card">
+        <div class="card-title">System Summary</div>
+        <div class="summary-rows">
+          <div class="summary-row">
+            <span class="summary-key">Approval Rate</span>
+            <span class="summary-val gold" id="approvalRate">0%</span>
+          </div>
+          <div class="summary-row">
+            <span class="summary-key">Total Loan Value</span>
+            <span class="summary-val" id="totalLoanValue">KES 0</span>
+          </div>
+          <div class="summary-row">
+            <span class="summary-key">Avg Loan Requested</span>
+            <span class="summary-val" id="avgLoan">KES 0</span>
+          </div>
+          <div class="summary-row">
+            <span class="summary-key">Data Region</span>
+            <span class="summary-val green">AWS Africa</span>
+          </div>
+          <div class="summary-row">
+            <span class="summary-key">Compliance</span>
+            <span class="summary-val green">Kenya DPA 2022</span>
+          </div>
+          <div class="summary-row">
+            <span class="summary-key">Built by</span>
+            <span class="summary-val gold">Zaina</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- RECENT APPLICATIONS TABLE -->
+    <div class="table-card">
+      <div class="table-top">
+        <div class="card-title">Recent Applications</div>
+        <span class="table-sub">Last 10 submissions</span>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Applicant</th>
+              <th>Occupation</th>
+              <th>County</th>
+              <th>Loan (KES)</th>
+              <th>Literacy</th>
+              <th>Risk</th>
+              <th>Decision</th>
+              <th>Priority</th>
+              <th>Time</th>
+            </tr>
+          </thead>
+          <tbody id="historyTable">
+            <tr>
+              <td colspan="9" class="empty-row">No applications yet. Submit one to see it here.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="dash-footer">
+    <p>Ujima SACCO AI Pride System &nbsp;|&nbsp; Built by <strong>Zaina</strong> &nbsp;|&nbsp; Kenya DPA 2022 Compliant &nbsp;|&nbsp; AWS Africa Region</p>
+    <p>Dial <strong>*#799#</strong> for full system pause &nbsp;|&nbsp; <strong>*#733#</strong> for human review</p>
+  </footer>
+
+  <script src="dashboard.js"></script>
+  <script>
+    if (!sessionStorage.getItem("ujima_user")) {
+      window.location.href = "login.html";
+    }
+  </script>
+</body>
+</html>

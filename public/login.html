@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ujima SACCO — Login</title>
+  <link rel="stylesheet" href="login.css" />
+</head>
+<body>
+
+  <div class="login-container">
+
+    <div class="login-left">
+      <div class="left-content">
+        <div class="brand">Ujima SACCO</div>
+        <h1>Empowering Kenyan Communities Through Fair Finance</h1>
+        <p>Our AI-powered loan system gives every member — market vendor, maize farmer, or small business owner — a fair and dignified review.</p>
+        <div class="features">
+          <div class="feature-item">
+            <span class="feature-icon">&#9679;</span>
+            <span>Scout Agent — Financial Literacy Coach</span>
+          </div>
+          <div class="feature-item">
+            <span class="feature-icon">&#9679;</span>
+            <span>Guardian Agent — Fair Loan Triage</span>
+          </div>
+          <div class="feature-item">
+            <span class="feature-icon">&#9679;</span>
+            <span>Hunter Agent — Human-in-Loop Review</span>
+          </div>
+          <div class="feature-item">
+            <span class="feature-icon">&#9679;</span>
+            <span>Kenya DPA 2022 Compliant — Your data stays in Africa</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="login-right">
+      <div class="login-card">
+
+        <div class="login-logo">U</div>
+        <h2>Welcome Back</h2>
+        <p class="login-sub">Sign in to access the Ujima SACCO AI System</p>
+
+        <div class="input-group">
+          <label>Email Address</label>
+          <div class="input-wrap">
+            <input type="email" id="email" placeholder="e.g. yourname@gmail.com" />
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label>Password</label>
+          <div class="input-wrap">
+            <input type="password" id="password" placeholder="Enter your password" />
+            <span class="toggle-pass" onclick="togglePassword()">Show</span>
+          </div>
+        </div>
+
+        <div class="login-options">
+          <label class="remember">
+            <input type="checkbox" id="remember" />
+            Remember me
+          </label>
+          <a href="#" class="forgot">Forgot password?</a>
+        </div>
+
+        <div class="error-msg" id="errorMsg"></div>
+
+        <button class="login-btn" id="loginBtn" onclick="handleLogin()">
+          Sign In
+        </button>
+
+        <div class="divider"><span>or</span></div>
+
+        <button class="guest-btn" onclick="guestLogin()">
+          Continue as Guest
+        </button>
+
+        <p class="login-footer">
+          Kenya DPA 2022 Compliant &nbsp;|&nbsp; Built by <strong>Zaina</strong>
+        </p>
+
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    function handleLogin() {
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value.trim();
+      const btn = document.getElementById("loginBtn");
+
+      if (!email || !password) {
+        showError("Please enter your email and password.");
+        return;
+      }
+
+      if (password.length < 4) {
+        showError("Password must be at least 4 characters.");
+        return;
+      }
+
+      btn.disabled = true;
+      btn.textContent = "Signing in...";
+
+      setTimeout(() => {
+        const name = email.split("@")[0];
+        const user = { email: email, role: "member", name: name };
+        sessionStorage.setItem("ujima_user", JSON.stringify(user));
+        window.location.href = "index.html";
+      }, 800);
+    }
+
+    function guestLogin() {
+      const guest = { email: "guest@ujima.co.ke", role: "guest", name: "Guest" };
+      sessionStorage.setItem("ujima_user", JSON.stringify(guest));
+      window.location.href = "index.html";
+    }
+
+    function showError(msg) {
+      const el = document.getElementById("errorMsg");
+      el.textContent = msg;
+      el.style.display = "block";
+    }
+
+    function togglePassword() {
+      const input = document.getElementById("password");
+      const btn = document.querySelector(".toggle-pass");
+      if (input.type === "password") {
+        input.type = "text";
+        btn.textContent = "Hide";
+      } else {
+        input.type = "password";
+        btn.textContent = "Show";
+      }
+    }
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") handleLogin();
+    });
+
+    if (sessionStorage.getItem("ujima_user")) {
+      window.location.href = "index.html";
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ujima SACCO — Loan Application</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <div class="header-brand">
+        <div class="brand-mark">U</div>
+        <div>
+          <div class="brand-name">Ujima SACCO</div>
+          <div class="brand-tagline">AI-Powered Loan Assistant</div>
+        </div>
+      </div>
+      <nav class="header-nav">
+        <a href="dashboard.html" class="nav-link">Dashboard</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="form-card">
+      <div class="form-title-block">
+        <h2>Loan Application Form</h2>
+        <p class="subtitle">Fill in your details honestly. Our system reviews every application with fairness and dignity — regardless of occupation or background.</p>
+      </div>
+
+      <div class="form-group">
+        <label>Full Name</label>
+        <input type="text" id="name" placeholder="e.g. Grace Achieng" />
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Age</label>
+          <input type="number" id="age" placeholder="e.g. 34" />
+        </div>
+        <div class="form-group">
+          <label>Number of Children</label>
+          <input type="number" id="children" placeholder="e.g. 3" />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Occupation</label>
+        <select id="occupation">
+          <option value="">-- Select your occupation --</option>
+          <option value="market vendor">Market Vendor</option>
+          <option value="maize farmer">Maize Farmer</option>
+          <option value="shea butter trader">Shea Butter Trader</option>
+          <option value="formal employee">Formal Employee</option>
+          <option value="matooke farmer">Matooke Farmer</option>
+          <option value="boda boda rider">Boda Boda Rider</option>
+          <option value="small business owner">Small Business Owner</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>County</label>
+        <input type="text" id="county" placeholder="e.g. Kakamega" />
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Monthly Income (KES)</label>
+          <input type="number" id="monthlyIncome" placeholder="e.g. 12000" />
+        </div>
+        <div class="form-group">
+          <label>Loan Amount Requested (KES)</label>
+          <input type="number" id="loanAmount" placeholder="e.g. 25000" />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Reason for Loan</label>
+        <textarea id="loanReason" rows="3" placeholder="e.g. School fees for my children before the long rains season"></textarea>
+      </div>
+
+      <div class="consent-box">
+        <input type="checkbox" id="consent" />
+        <label for="consent">
+          Nakubali — I consent to Ujima SACCO processing my data locally under Kenya DPA 2022. My data will not be shared with external models or stored outside Africa.
+        </label>
+      </div>
+
+      <button id="submitBtn" onclick="submitApplication()">
+        Submit Application
+      </button>
+    </div>
+
+    <!-- RESULTS SECTION -->
+    <div class="results-card" id="resultsCard" style="display:none;">
+
+      <div class="agent-section scout">
+        <div class="agent-header">
+          <div class="agent-label">Agent 1</div>
+          <h3>Scout — Financial Literacy Report</h3>
+        </div>
+        <div id="scoutResults"></div>
+      </div>
+
+      <div class="agent-section guardian">
+        <div class="agent-header">
+          <div class="agent-label">Agent 2</div>
+          <h3>Guardian — Loan Triage</h3>
+        </div>
+        <div id="guardianResults"></div>
+      </div>
+
+      <div class="agent-section hunter">
+        <div class="agent-header">
+          <div class="agent-label">Agent 3</div>
+          <h3>Hunter — Officer Briefing</h3>
+        </div>
+        <div id="hunterResults"></div>
+      </div>
+
+      <button class="reset-btn" onclick="resetForm()">
+        Submit Another Application
+      </button>
+    </div>
+
+  </main>
+
+  <footer>
+    <p>Ujima SACCO AI System &nbsp;|&nbsp; Kenya DPA 2022 Compliant &nbsp;|&nbsp; Data stored on AWS Africa (Cape Town)</p>
+    <p>Dial <strong>*#733#</strong> to request human review at any time</p>
+  </footer>
+
+  <script src="app.js"></script>
+  <script>
+    if (!sessionStorage.getItem("ujima_user")) {
+      window.location.href = "login.html";
+    }
+  </script>
+</body>
+</html>

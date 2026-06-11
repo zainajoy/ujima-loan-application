@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1781159228372,
+    "timestamp": "2026-06-11T06:27:08.372Z",
+    "applicant": {
+      "name": "joy zaina",
+      "age": "25",
+      "occupation": "maize farmer",
+      "county": "kiambu",
+      "loanAmount": "40000",
+      "monthlyIncome": "35000",
+      "children": "3",
+      "loanReason": "school fees for children"
+    },
+    "scout": {
+      "stressSignals": [
+        "High loan-to-income ratio (>100%)",
+        "Using loan for essential expenses (school fees)",
+        "Limited savings indicated"
+      ],
+      "harvestAwareness": "medium",
+      "loanSharkFlag": false,
+      "literacyScore": 68,
+      "smsMessage": "Hello Joy, we see you're working hard to support your children's education. Remember, borrowing wisely today helps build a stronger tomorrow for your family."
+    },
+    "guardian": {
+      "riskScore": 60,
+      "riskFlags": [
+        "Loan amount exceeds monthly income",
+        "Loan used for essential non‑productive expense",
+        "Young borrower with limited credit history",
+        "No collateral details provided",
+        "Dependence on seasonal farming income"
+      ],
+      "decision": "escalate",
+      "reason": "We appreciate Joy’s commitment to her children’s future and recognize the importance of education. Due to the size of the requested loan relative to her current income, we need to review the application with additional guidance to ensure sustainable repayment."
+    },
+    "hunter": {
+      "briefing": "Officer: Joy Zaina, 25‑year‑old maize farmer from Kiambu, requests KES 40,000 to pay school fees for three children. She earns KES 35,000 monthly and has no indicated collateral. The loan exceeds her monthly income, warranting escalation for further assessment.",
+      "repaymentSchedule": "Repay KES 20,000 in October after the main maize harvest and the remaining KES 20,000 in April after the short‑rain harvest.",
+      "crossSellOpportunity": "Offer a savings account for education funds and a crop insurance product to protect against yield loss.",
+      "priority": "high"
+    }
+  },
+  {
+    "id": 1781114652363,
+    "timestamp": "2026-06-10T18:04:12.363Z",
+    "applicant": {
+      "name": "grace",
+      "age": "30",
+      "occupation": "formal employee",
+      "county": "kisumu",
+      "loanAmount": "34000",
+      "monthlyIncome": "24998",
+      "children": "1",
+      "loanReason": "school fees"
+    },
+    "scout": {
+      "stressSignals": [
+        "High debt-to-income ratio for education expenses"
+      ],
+      "harvestAwareness": "low",
+      "loanSharkFlag": false,
+      "literacyScore": 65,
+      "smsMessage": "Hello Grace! We are happy to help with your child's education. Let us work together to make your finances stronger."
+    },
+    "guardian": {
+      "riskScore": 35,
+      "riskFlags": [
+        "Loan amount exceeds 100% of monthly income"
+      ],
+      "decision": "escalate",
+      "reason": "The requested amount is substantial relative to the monthly earnings and requires a senior review to ensure sustainable repayment."
+    },
+    "hunter": {
+      "briefing": "Member Grace, a formal employee in Kisumu, is requesting KES 34,000 for school fees. Income is stable, but the loan amount is high relative to salary.",
+      "repaymentSchedule": "Installments structured with lower payments during the March/April and September/October cycles to align with school fee peaks and agricultural trends.",
+      "crossSellOpportunity": "Education Savings Account for future school fees.",
+      "priority": "medium"
+    }
+  }
+]
